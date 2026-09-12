@@ -1,0 +1,42 @@
+.addUser-container{
+  margin: auto;
+  height: 50vh;
+  width: 700px;
+}
+.addUser-button{
+  position: relative;
+  left: 80%;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  background-color: blue;
+   cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 25px;
+}
+.button-p{
+  position: relative;
+  /* text-align: center; */
+}
+.heading{
+  text-align: center;
+}
+.edit{
+  color: white;
+  background-color: green;
+  height: 40px;
+  width: 70px;
+  border: none;
+  border-radius: 25px;
+   cursor: pointer;
+}
+.delete{
+   color: white;
+  background-color: red;
+  height: 40px;
+  width: 70px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
