@@ -1,13 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { api } from '../services/userManagament';
+import api from '../services/userManagament';  // ✔️ default import
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from "react-router-dom"
 
 import "../App.css"
 
 const Home = () => {
-
+ 
   const [formdata,setFormData]=useState({
     name:"hello",
     email:"",
@@ -19,16 +19,16 @@ const Home = () => {
   }
    const [data,setData]= useState([]);
    useEffect(()=>{
-      axios.get(api)
+      api.get("/user")
       .then(res=>setData(res.data))
       .catch(e=>alert(e));
    },[]);
 
    const deleteUser=(id)=>{
-    axios.delete(`${api}/${id}`)
+    api.delete(`user/${id}`)
     .then(res=>{
         if(res.status==200) {
-            axios.get(api)
+            api.get(`user`)
         .then(res=>setData(res.data))
         .catch(e=>alert(e));
             alert(`User : ${id}  Delete Succesfully `)

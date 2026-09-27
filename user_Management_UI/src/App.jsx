@@ -1,37 +1,30 @@
-import React, { useEffect, useState } from 'react'
-import {api} from "./services/userManagament.js"
-import Home from "../src/pages/Home.jsx"
-  import { RouterProvider ,createBrowserRouter } from 'react-router-dom'
-import Edit from './pages/Edit.jsx';
-import AddUser from './pages/AddUser.jsx';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import Edit from "./pages/Edit.jsx";
+import AddUser from "./pages/AddUser.jsx";
+import Login from "./pages/Login.jsx";
 
-const router=createBrowserRouter([
-
-
+const router = createBrowserRouter([
   {
-
-    path:"/",
-    element: <div>
-      <Home/>
-    </div>
+    path: "/",
+    element: <Login />
   },
   {
-      path:"/edit/:id",
-    element: <div>
-      <Edit/>
-    </div>
+    path: "/home",
+    element: <Home />
   },
   {
-    path:"/addUser",
-    element:<div> 
-      <AddUser/>
-    </div>
+    path: "/home/edit/:id",
+    element: <Edit />
+  },
+  {
+    path: "/addUser",
+    element: <AddUser />
   }
-
 ]);
-const App=()=>{
-  return(
-      <RouterProvider router={router}></RouterProvider>
-  )
+
+function App() {
+  return <RouterProvider router={router} />;
 }
+
 export default App;

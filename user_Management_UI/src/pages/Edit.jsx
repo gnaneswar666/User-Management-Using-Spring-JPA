@@ -1,14 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { api } from '../services/userManagament';
+import api from '../services/userManagament';  // ✔️ correct for default export
 import { useNavigate } from 'react-router-dom';
 const Edit = () => {
     const {id}=useParams();
     const [data,setData]=useState({});
     const navigate = useNavigate();
     useEffect(()=>{
-        axios.get(`${api}/${id}`)
+        api.get(`user/${id}`)
         .then(res=>setData(res.data))
         .catch(e=>console.log(e))
     },[id]);
@@ -19,7 +19,7 @@ const Edit = () => {
     }
     const submit=(e)=>{
         e.preventDefault();
-        axios.put(`${api}/${id}`,{
+        api.put(`user/${id}`,{
                 name:data["name"],
                 age:data["age"],
                 password:data["password"],
@@ -27,7 +27,7 @@ const Edit = () => {
         })
         .then(status=>{
             if(status.status==201){
-                navigate("/")
+                navigate("/home")
             }
            
         })

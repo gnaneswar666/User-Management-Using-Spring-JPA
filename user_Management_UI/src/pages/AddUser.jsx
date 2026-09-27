@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { api } from '../services/userManagament';
+import api from '../services/userManagament';  // ✔️ correct for default export
 import { Link, useNavigate } from 'react-router-dom';
 import "../App.css"
 const AddUser = () => {
@@ -8,7 +8,7 @@ const AddUser = () => {
      const navigate=useNavigate();
   const submit=(e)=>{
         e.preventDefault();
-        axios.post(`${api}`,{
+        api.post('/user',{
                 name:data["name"],
                 age:data["age"],
                 password:data["password"],
@@ -16,7 +16,7 @@ const AddUser = () => {
         })
         .then(status=>{
             if(status.status==201){
-                navigate("/")
+                navigate("/home")
             }
            
         })
